@@ -1,0 +1,30 @@
+.select-view {
+    cursor: pointer;
+    margin-bottom: 5%;
+  }
+  
+  .select-view img {
+    width: 85%;
+    margin: auto;
+  }
+  
+  .view-wrapper {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    margin-top: 6%;
+  }
+  
+  .view-img {
+    background-color: #ffffff;
+    border-radius: 0 0 4px 4px;
+  }
+  
+  .view-img p {
+    margin-bottom: 0;
+    font-size: 0.75vw;
+    font-family: "OpenSans-700";
+  }
