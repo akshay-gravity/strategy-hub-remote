@@ -5,13 +5,13 @@ const MapViewCpt = (props: any) => {
         <div>
             <aside
                 style={{
-                    alignItems: "center",
                     display: "flex",
-                    flexDirection: "column",
-                    gap: "12px"
+                    flexDirection: "row-reverse",
+                    gap: "12px",
+                    justifyContent: "center"
                 }}
             >
-                <GlobalFilter onRegionChange={props.handleOnRegionClick} onPopoverToggleChange={props.handleOnPopoverToggleChange} />
+                <GlobalFilter socket={props.socket} onRegionChange={props.handleOnRegionClick} onPopoverToggleChange={props.handleOnPopoverToggleChange} />
             </aside>
         </div>
     );

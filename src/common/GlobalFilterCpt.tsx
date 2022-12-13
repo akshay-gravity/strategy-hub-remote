@@ -7,7 +7,7 @@ import NestedDropdown, { NestedDropdownLevelTwoListModel, NestedTreeDropdownList
 import SHDatePicker from './SHDatePickerCpt';
 import ToggleSwitch from './ToggleSwitchCpt';
 import "../styles/FilterCard.scss";
-
+import NavigationArrowCpt from './NavigationArrowCpt';
 
 // Region STATIC DATA and Types starts here......
 const regionList: NestedTreeDropdownListModel[] = [
@@ -16,7 +16,7 @@ const regionList: NestedTreeDropdownListModel[] = [
     children: [
       {
         title: "South Asia All",
-        children: []
+        children:[]
       },
       {
         title: "Bhutan",
@@ -34,6 +34,29 @@ const regionList: NestedTreeDropdownListModel[] = [
           "Mumbai",
           "Chennai",
           "Bangalore"
+        ]
+      }
+    ]
+  },
+  {
+    title: "Europe",
+    children: [
+      {
+        title: "Europe All",
+        children:[]
+      },
+      {
+        title: "Germany",
+        children: [
+          "Germany All",
+          "Berlin"
+        ]
+      },
+      {
+        title: "France",
+        children: [
+          "France All",
+          "Paris"
         ]
       }
     ]
@@ -99,6 +122,7 @@ export interface ThemeListModel {
 // Themes STATIC DATA and Types ends here......
 
 export interface GlobalFilterModel {
+  socket: any
   onRegionChange: (loc: string) => void,
   onPopoverToggleChange: (status: boolean) => void
 }
@@ -106,7 +130,7 @@ export interface GlobalFilterModel {
 const GlobalFilter = (props: GlobalFilterModel) => {  
   let isFnCallEnded = false;
   const [cardVisible,setCardVisibility]=useState(false)
-  const [filterData, setFilterData] = useState([])
+  const [filterData, setFilterData] = useState<any[]>([])
   const [regionData, updateRegionData] = useState<NestedTreeDropdownListModel[]>([]);
   const [themeData, updateThemeData] = useState<NestedTreeDropdownListModel[]>([]);
 
@@ -137,7 +161,6 @@ const GlobalFilter = (props: GlobalFilterModel) => {
         parseRegionNestedData(element.children)
       }
     }
-    console.log('regionNestedData',regionNestedData)
     return regionNestedData;
   }
 
@@ -166,7 +189,7 @@ const GlobalFilter = (props: GlobalFilterModel) => {
     return themeNestedData;
   }
 
-  const onRegionChange = (loc: string) => {
+  const onRegionChange = (loc: string,type:string) => {
     props.onRegionChange(loc);
   }
 
@@ -179,23 +202,22 @@ const GlobalFilter = (props: GlobalFilterModel) => {
     setFilterData(data)
   }
 
+
+
   return (
     <>
-    <aside className='global-filter-wrapper'>
       <section className='global-filter-callout-toggle'>
         <ToggleSwitch
           offStateString='Toggle Off'
           handleChange={onPopoverToggleChange}
         />
       </section>
+    <aside className='global-filter-wrapper'>
+    <NavigationArrowCpt />
       <section className='global-filter-content'>
-        <ToggleSwitch
-          customCSSClasses='opacity-50 pe-none'
-          onStateString='Filters'
-          offStateString='Compare'
-          handleChange={(d) => { }}
-        />
+        <p className='p-font'>Filters</p>
         <Container className='my-1'>
+         
           <Row>
             <Col className='p-0'>
             {/* <Container fluid className="px-0"> */}
@@ -229,8 +251,10 @@ const GlobalFilter = (props: GlobalFilterModel) => {
             </Col>
           </Row>
         </Container>
-        <FilterCardsCpt cardVisible = {cardVisible} data = {filterData}/>
+        
+        <FilterCardsCpt cardVisible = {cardVisible} data = {filterData}  socket = {props.socket} handleFilter={onRegionChange}/>
       </section>
+
     </aside>
     </>
   );

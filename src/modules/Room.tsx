@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
-import "../styles/Rooms.scss";
 import "../styles/Home.css";
 import Logo from "../../public/images/VFS-logo.svg";
 import { isPropertyDeclaration } from "typescript";

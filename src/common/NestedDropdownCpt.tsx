@@ -23,7 +23,7 @@ export interface NestedDropdownLevelTwoListModel {
 
 export interface NestedTreeDropdownListModel {
     title: string;
-    children: (NestedTreeDropdownListModel|string)[];
+    children?: (NestedTreeDropdownListModel|string)[];
   }
 
 const NestedDropdown = (props: NestedDropdownModel) => {

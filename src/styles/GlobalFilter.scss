@@ -95,4 +95,18 @@
   button#dropdown-basic {
     color: blue;
   }
+
+.global-filter-content .p-font {
+font-family: 'Open Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* or 143% */
+
+display: flex;
+align-items: flex-end;
+
+color: #1C87D9;
+  }
 }

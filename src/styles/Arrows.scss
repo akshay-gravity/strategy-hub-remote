@@ -1,0 +1,33 @@
+.arrows{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-content: center;
+    width: 13vw;
+    margin-right: 60px;
+}
+
+.arrowcircleup {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.arrowcircledown {
+    transform: rotate(180deg);
+    grid-row: 3;
+    grid-column: 2;
+
+}
+
+.arrowcircleright {
+    transform: rotate(90deg);
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.arrowcircleleft {
+    transform: rotate(270deg);
+    grid-column: 1;
+    grid-row: 2;
+}
+
