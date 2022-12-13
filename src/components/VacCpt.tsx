@@ -12,7 +12,7 @@ const Vac = (props: any) => {
                     justifyContent: "center"
                 }}
             >
-                <GlobalFilter onRegionChange={props.handleOnRegionClick} onPopoverToggleChange={props.handleOnPopoverToggleChange} />
+                <GlobalFilter onRegionChange={props.handleOnRegionClick} onPopoverToggleChange={props.handleOnPopoverToggleChange} socket={props.socket} />
             </aside>
     <div className="position-svg">
       <img src="/images/vac.png" alt="service" style={{ width: "50%",height:"50%" }} />

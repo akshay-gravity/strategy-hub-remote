@@ -14,13 +14,20 @@ const View = (props: any) => {
     });
   }, [props.socket, navigate]);
 
+  const handleOnRegionClick = (region: any) => {
+    props.socket.emit("locate-region", region);
+}
+const handleOnPopoverToggleChange = (status: boolean) => {
+    props.socket.emit("toggle-change", status);
+}
+
   return (
     <>
       <div className="home-header text-center">
         <img alt="Logo" className="logo" src={Logo} />
         <h1 className="vfs-title mb-0">VFS INSIGHT</h1>
       </div>
-      <Vac socket={props.socket} />
+      <Vac socket={props.socket} handleOnRegionClick={handleOnRegionClick} handleOnPopoverToggleChange={handleOnPopoverToggleChange}/>
     </>);
 };
 
