@@ -12,6 +12,7 @@ import Login from "../modules/Login";
 import Room from "../modules/Room";
 import MapView from "../modules/MapView";
 import { useEffect, useState } from "react";
+import Insights from "../modules/Insights";
 
 const Routers: React.FC = () => {
     const initializeSocket = () => {
@@ -28,6 +29,7 @@ const Routers: React.FC = () => {
           <Route path="room" element={<Room socket={socket} />} />
           <Route path="map" element={<MapView socket={socket} />} />          
           <Route path="vac-view" element={<Vac socket={socket} />} />
+          <Route path="insights" element={<Insights socket={socket} />} />
           <Route path="views" element={<View socket={socket} />} />
           <Route path="login" element={<Login socket={socket} />} />
           <Route
