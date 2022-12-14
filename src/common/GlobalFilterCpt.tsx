@@ -8,6 +8,7 @@ import SHDatePicker from './SHDatePickerCpt';
 import ToggleSwitch from './ToggleSwitchCpt';
 import "../styles/FilterCard.scss";
 import NavigationArrowCpt from './NavigationArrowCpt';
+import { fetchRegionThemes } from '../services/api';
 
 // Region STATIC DATA and Types starts here......
 const regionList: NestedTreeDropdownListModel[] = [
@@ -135,8 +136,14 @@ const GlobalFilter = (props: GlobalFilterModel) => {
   const [themeData, updateThemeData] = useState<NestedTreeDropdownListModel[]>([]);
 
   useEffect(() => {
-    updateRegionData(parseRegionNestedData(regionList));
-    updateThemeData(parseThemeNestedData(themeList));
+    // fetchRegionThemes().then(result => {
+    //   console.log(result)
+    //   let response = result.response
+      // updateRegionData(parseRegionNestedData(response['Region']));
+      // updateThemeData(parseThemeNestedData(response['Themes']));
+      updateRegionData(parseRegionNestedData(regionList));
+      updateThemeData(parseThemeNestedData(themeList));
+    //});
   }, []);
 
   const parseRegionNestedData = (regionList: any[]): NestedTreeDropdownListModel[] => {
@@ -189,7 +196,7 @@ const GlobalFilter = (props: GlobalFilterModel) => {
     return themeNestedData;
   }
 
-  const onRegionChange = (loc: string,type:string) => {
+  const onRegionChange = (loc: string) => {
     props.onRegionChange(loc);
   }
 

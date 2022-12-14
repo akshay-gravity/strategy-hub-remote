@@ -11,9 +11,15 @@ import Vac from "../modules/Vac";
 import Login from "../modules/Login";
 import Room from "../modules/Room";
 import MapView from "../modules/MapView";
+import { useEffect, useState } from "react";
 
 const Routers: React.FC = () => {
-  const socket = connect("http://localhost:2000");
+    const initializeSocket = () => {
+    return connect("http://localhost:2000");  
+   }
+
+   const [socket, setSocketConn] = useState<any>(initializeSocket);
+
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -26,7 +32,7 @@ const Routers: React.FC = () => {
           <Route path="login" element={<Login socket={socket} />} />
           <Route
             path="*"
-            element={<Room socket={socket} />} 
+            element={<Login socket={socket} />} 
           />
           {/* <Route path="/room" element={<Home socket={socket} />} /> */}
         </Routes>
