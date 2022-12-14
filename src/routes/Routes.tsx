@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 
 const Routers: React.FC = () => {
     const initializeSocket = () => {
-    return connect("http://localhost:2000");  
+    return connect("https://insighthub-dev-backend.azurewebsites.net/");  
    }
 
    const [socket, setSocketConn] = useState<any>(initializeSocket);
