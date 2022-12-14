@@ -136,14 +136,14 @@ const GlobalFilter = (props: GlobalFilterModel) => {
   const [themeData, updateThemeData] = useState<NestedTreeDropdownListModel[]>([]);
 
   useEffect(() => {
-    // fetchRegionThemes().then(result => {
-    //   console.log(result)
-    //   let response = result.response
-      // updateRegionData(parseRegionNestedData(response['Region']));
-      // updateThemeData(parseThemeNestedData(response['Themes']));
-      updateRegionData(parseRegionNestedData(regionList));
-      updateThemeData(parseThemeNestedData(themeList));
-    //});
+    fetchRegionThemes().then(result => {
+      console.log(result)
+      let response = result.response
+      updateRegionData(parseRegionNestedData(response['Region']));
+      updateThemeData(parseThemeNestedData(response['Themes']));
+     // updateRegionData(parseRegionNestedData(regionList));
+     // updateThemeData(parseThemeNestedData(themeList));
+    });
   }, []);
 
   const parseRegionNestedData = (regionList: any[]): NestedTreeDropdownListModel[] => {
@@ -220,7 +220,7 @@ const GlobalFilter = (props: GlobalFilterModel) => {
         />
       </section>
     <aside className='global-filter-wrapper'>
-    <NavigationArrowCpt />
+    <NavigationArrowCpt socket={props.socket}/>
       <section className='global-filter-content'>
         <p className='p-font'>Filters</p>
         <Container className='my-1'>

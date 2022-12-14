@@ -2,20 +2,6 @@ import MapViewCpt from "../components/MapViewCpt";
 import Logo from "../../public/images/VFS-logo.svg";
 import { useEffect, useState } from "react";
 
-export interface NavigationRoutes {
-    data: Record<string, NavigationArrow>
-}
-
-export interface NavigationArrow {
-    arrowKey: Record<string, NavigationArrowProps>
-}
-
-export interface NavigationArrowProps {
-    Disabled: boolean;
-    NavigateFrom: string;
-    NavigateTo: string;
-}
-
 const MapView = (props: any) => {
     useEffect(() => {
         // navigationArrow = 

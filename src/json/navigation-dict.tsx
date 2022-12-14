@@ -1,4 +1,5 @@
-import { NavigationRoutes } from "../modules/MapView";
+import { NavigationRoutes } from "../common/NavigationArrowCpt";
+
 
 export const NavigationArrows: NavigationRoutes = {
     data: {
@@ -17,7 +18,7 @@ export const NavigationArrows: NavigationRoutes = {
                 "Right": {
                     "Disabled": false,
                     "NavigateFrom": "",
-                    "NavigateTo": "/vac"
+                    "NavigateTo": "/vac-view"
                 },
                 "Left": {
                     "Disabled": true,
@@ -26,7 +27,7 @@ export const NavigationArrows: NavigationRoutes = {
                 }
             }
         },
-        "/vac": {
+        "/vac-view": {
             arrowKey: {
                 "Up": {
                     "Disabled": true,

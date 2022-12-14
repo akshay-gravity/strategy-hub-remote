@@ -27,7 +27,7 @@ const Routers: React.FC = () => {
           <Route path="home" element={<Home socket={socket} />} />
           <Route path="room" element={<Room socket={socket} />} />
           <Route path="map" element={<MapView socket={socket} />} />          
-          <Route path="vac" element={<Vac socket={socket} />} />
+          <Route path="vac-view" element={<Vac socket={socket} />} />
           <Route path="views" element={<View socket={socket} />} />
           <Route path="login" element={<Login socket={socket} />} />
           <Route
